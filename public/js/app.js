@@ -1,5 +1,25 @@
 var paginateCount = 10;
 
+// var DATA = (function () {
+//     var data = {};
+
+//     data.fetchRemoteArticles = function () {
+//         var moreArticles = '';
+//         $.ajax({
+//           type: 'GET',
+//           url: window.location.href + "/data/more-articles.json",
+//           success:function(returnData){
+//             moreArticles = returnData;
+//           }
+//         });
+//         console.log()
+//         return moreArticles;
+//     };
+
+//     return data;
+// }());
+
+
 var ARTICLE = (function () {
     var article = {};
     var container = document.getElementById("article-list"); 
@@ -10,26 +30,8 @@ var ARTICLE = (function () {
     }
 
     function createArticle(articleData) {
-        var newArticle = document.createElement("li");
-        var articleImage = document.createElement("img");
-        var title = document.createElement("div");
-        var author = document.createElement("div");
-        var words = document.createElement("div");
-        var submitted = document.createElement("div");
-
-        articleImage.src = articleData.image;
-        title.innerHTML = articleData.title;
-        author.innerHTML = articleData.profile.first_name + " " + articleData.profile.last_name;
-        words.innerHTML = articleData.words;
-        submitted.innerHTML = articleData.publish_at;
-
-        newArticle.appendChild(articleImage);
-        newArticle.appendChild(title);
-        newArticle.appendChild(author);
-        newArticle.appendChild(words);
-        newArticle.appendChild(submitted);
-
-        return newArticle;
+        var articleString = '<li>' + '<img src=' + articleData.image + '></img>' + '<div>' + articleData.title + '</div>' + articleData.profile.first_name + " " + articleData.profile.last_name + '<div>' + articleData.words + '</div>' + '<div>' + articleData.publish_at + '</div>' + '</li>'
+        return articleString;
     }
 
     article.appendArticles = function (data) {
@@ -38,8 +40,7 @@ var ARTICLE = (function () {
             //create all my elements
             var articleData = data[i];
             var newArticle = createArticle(articleData);
-
-            container.appendChild(newArticle);
+            $('#article-list').append(newArticle);
         }
     };
 
@@ -52,13 +53,23 @@ var ARTICLE = (function () {
 //append data to page
 $(function() {
     var data = seedData;
+    var allDataLoaded = false;
     var loadMore = function(){
         if(data.length > 0){
             ARTICLE.appendArticles(data.splice(0, paginateCount+1));
         } else {
-            console.log('get more!');
+            if(!allDataLoaded){
+                $.ajax({
+                    type: 'GET',
+                    url: window.location.href + "/data/more-articles.json",
+                    success:function(returnData){
+                        data = returnData;
+                        allDataLoaded = true;
+                        ARTICLE.appendArticles(data.splice(0, paginateCount+1));
+                    }
+                });
+            }
         }
-
     }
     loadMore();
 

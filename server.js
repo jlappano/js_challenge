@@ -3,8 +3,8 @@ var express = require('express');
 
 var app = express();
 
-var staticPath = path.join(__dirname, '/public');
-app.use(express.static(staticPath));
+var publicPath = path.join(__dirname, '/public');
+app.use(express.static(publicPath));
 
 app.listen(8888, function() {
   console.log('listening on port 8888');
