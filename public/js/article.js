@@ -38,9 +38,9 @@ var ARTICLE = (function () {
 
     function createArticle(articleData) {
         var dateString = Date.parse(new Date(articleData.publish_at));
-        var articleString = '<li data-words=' + articleData.words + ' data-submitted=' + 
-        dateString + '><img src=' + articleData.image + '></img><div class="title column">' + 
-        articleData.title + '</div><div class="author column">' + articleData.profile.first_name + " " + articleData.profile.last_name + 
+        var articleString = '<li class="clearfix" data-words=' + articleData.words + ' data-submitted=' + 
+        dateString + '><div class="img column"><div class="background" style="background-image: url(' + articleData.image + ');"></div></div><div class="title column"><span class="title-span">' + 
+        articleData.title + '</span></div><div class="author column">' + articleData.profile.first_name + " " + articleData.profile.last_name + 
         '</div><div class="word-count column">' + articleData.words + '</div><div class="pubished column">' + 
         formatDate(articleData.publish_at) + '</div></li>'
         return articleString;

@@ -15,6 +15,7 @@ var SORT = (function () {
         } else {
             sort.byWordDesc();
         }
+        insertSortSettingIntoHistory(); 
     };
 
     sort.byDate = function () {
@@ -23,6 +24,7 @@ var SORT = (function () {
         } else {
             sort.bySubmittedDesc();
         }
+        insertSortSettingIntoHistory();
     };
 
     sort.byWordAsc = function () {
@@ -32,7 +34,6 @@ var SORT = (function () {
 
         sort.sortSetting = "byWordAsc";
         sort.wordAsc = false;
-        insertSortSettingIntoHistory(); 
     }
 
     sort.byWordDesc = function () {
@@ -42,7 +43,7 @@ var SORT = (function () {
 
         sort.sortSetting = "byWordDesc";
         sort.wordAsc = true;
-        insertSortSettingIntoHistory(); 
+        // insertSortSettingIntoHistory(); 
     }
 
     sort.bySubmittedAsc = function () {
@@ -52,7 +53,7 @@ var SORT = (function () {
 
         sort.sortSetting = "bySubmittedAsc";
         sort.dateAsc = false;
-        insertSortSettingIntoHistory();
+        
     };
 
     sort.bySubmittedDesc = function () {
@@ -62,7 +63,7 @@ var SORT = (function () {
 
         sort.sortSetting = "bySubmittedDesc";
         sort.dateAsc = true;
-        insertSortSettingIntoHistory();
+        // insertSortSettingIntoHistory();
     };
 
     //this could be better, key value 

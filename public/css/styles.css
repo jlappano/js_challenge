@@ -40,14 +40,22 @@ li:nth-child(even) {
     height: 75px;
 }
 
-img {
-    padding-left: 15px;
+.img.column {
+    border-right: none;
+}
+
+span {
+    display: block;
+}
+
+.background {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     width: 50px;
     height: 50px;
-    display: block;
-    float: left;
-    border-bottom: 1px solid #ebebeb;
-    border-right: 1px solid #ebebeb;
+    margin-top: 12px;
+    margin-left: 15px;
 }
 
 .header-title {
@@ -66,11 +74,17 @@ img {
     width: 10%;
 }
 
+.title-span {
+    margin-left: 15px;
+    margin-top: 10px;
+    overflow: auto;
+}
+
 .title {
     color: #125277;
-    font-size: 1em;
+    font-size: 1.1em;
     font-family: Arial, Arial, Helvetica, sans-serif;
     font-weight: bold;
-    padding-left: 20px;
+    /*padding-left: 20px;*/
     width: 65%;
 }
