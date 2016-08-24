@@ -2,6 +2,7 @@ var SORT = (function () {
     var sort = {};
     var sortStorage = '';
     sort.wordAsc = true;
+    sort.dateAsc = true;
     sort.sortSetting = '';
 
     function insertSortSettingIntoHistory() {
@@ -13,6 +14,14 @@ var SORT = (function () {
             sort.byWordAsc();
         } else {
             sort.byWordDesc();
+        }
+    };
+
+    sort.byDate = function () {
+        if(sort.dateAsc){
+            sort.bySubmittedAsc();
+        } else {
+            sort.bySubmittedDesc();
         }
     };
 
@@ -42,6 +51,17 @@ var SORT = (function () {
         }).appendTo($wrapper);
 
         sort.sortSetting = "bySubmittedAsc";
+        sort.dateAsc = false;
+        insertSortSettingIntoHistory();
+    };
+
+    sort.bySubmittedDesc = function () {
+        $wrapper.find('li').sort(function(a, b) {
+            return +b.dataset.submitted - +a.dataset.submitted;
+        }).appendTo($wrapper);
+
+        sort.sortSetting = "bySubmittedDesc";
+        sort.dateAsc = true;
         insertSortSettingIntoHistory();
     };
 
@@ -57,8 +77,10 @@ var SORT = (function () {
                     sort.byWordDesc();
                     break;
                 case "bySubmittedAsc":
+                    sort.bySubmittedAsc();
                     break;
                 case "bySubmittedDesc":
+                    sort.bySubmittedDesc();
                     break;
                 default:
                     console.log("localStorage value not valid");

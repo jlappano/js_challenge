@@ -3,16 +3,46 @@ var ARTICLE = (function () {
     var container = document.getElementById("article-list"); 
 
     //change to X X's ago format
-    function formatDate(string){
+    function formatDate(date){
+        var givenDate = new Date(date);
+        var nowDate = new Date();
 
+        var yearDiff = Math.floor(nowDate.getFullYear() - givenDate.getFullYear());
+        if (yearDiff > 1) {
+            return yearDiff + " years ago";
+        }
+
+        var monthDiff = Math.floor(nowDate.getMonth() - givenDate.getMonth());
+        if (monthDiff > 1) {
+            return monthDiff + " months ago";
+        }
+
+        var dayDiff = Math.floor(nowDate.getDate() - givenDate.getDate());
+        if (dayDiff > 1) {
+            return dayDiff + " days ago";
+        }
+
+        var hourDiff = Math.floor(nowDate.getHours() - givenDate.getHours());
+        if (hourDiff > 1) {
+            return hourDiff + " hours ago";
+        }
+
+        var minuteDiff = Math.floor(nowDate.getMinutes() - givenDate.getMinutes());
+        if (minuteDiff > 1) {
+            return minuteDiff + " minutes ago";
+        }
+
+        var secondDiff = Math.floor(nowDate.getSeconds() - givenDate.getSeconds());
+        return secondDiff + " seconds ago";
     }
 
     function createArticle(articleData) {
+        var dateString = Date.parse(new Date(articleData.publish_at));
         var articleString = '<li data-words=' + articleData.words + ' data-submitted=' + 
-        articleData.publish_at + '><img src=' + articleData.image + '></img><div class="title column">' + 
+        dateString + '><img src=' + articleData.image + '></img><div class="title column">' + 
         articleData.title + '</div><div class="author column">' + articleData.profile.first_name + " " + articleData.profile.last_name + 
         '</div><div class="word-count column">' + articleData.words + '</div><div class="pubished column">' + 
-        articleData.publish_at + '</div></li>'
+        formatDate(articleData.publish_at) + '</div></li>'
         return articleString;
     }
 

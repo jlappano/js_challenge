@@ -33,5 +33,5 @@ $(function() {
     // add event listeners to buttons
     button.addEventListener("click", loadMore);
     wordSort.addEventListener("click", SORT.byWord);
-    submittedSort.addEventListener("click", SORT.bySubmittedAsc);
+    submittedSort.addEventListener("click", SORT.byDate);
 });
