@@ -40,9 +40,9 @@ var ARTICLE = (function () {
         var dateString = Date.parse(new Date(articleData.publish_at));
         var articleString = '<li class="clearfix" data-words=' + articleData.words + ' data-submitted=' + 
         dateString + '><div class="img column"><div class="background" style="background-image: url(' + articleData.image + ');"></div></div><div class="title column"><span class="title-span">' + 
-        articleData.title + '</span></div><div class="author column">' + articleData.profile.first_name + " " + articleData.profile.last_name + 
-        '</div><div class="word-count column">' + articleData.words + '</div><div class="pubished column">' + 
-        formatDate(articleData.publish_at) + '</div></li>'
+        articleData.title + '</span></div><div class="author column"><span class="author-span">' + articleData.profile.first_name + " " + articleData.profile.last_name + 
+        '</span></div><div class="word-count column"><span class="black-text-span">' + articleData.words + '</span></div><div class="pubished column"><span class="black-text-span">' + 
+        formatDate(articleData.publish_at) + '</span></div></li>';
         return articleString;
     }
 
