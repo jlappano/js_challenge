@@ -9,6 +9,10 @@
 li:nth-child(odd).header {
     background-color: #983441;
     color: #FFFFFF;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-size: .8em;
+    font-weight: bold;
 }
 
 ul {
@@ -88,6 +92,12 @@ span {
 .black-text-span {
     font-family: Arial, Arial, Helvetica, sans-serif;
     font-size: .8em;
+    margin-top: 30px;
+}
+
+.header-title-span {
+    text-transform: uppercase;
+    margin-left: 10px;
     margin-top: 30px;
 }
 
