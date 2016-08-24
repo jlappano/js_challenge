@@ -1,18 +1,17 @@
-.hidden {
-    display: none;
-}
-
-.container {
-    border: 1px solid #ebebeb;
-}
-
 li:nth-child(odd).header {
-    background-color: #983441;
+    background: linear-gradient(#b33e4e, #802b37);
+    background: -moz-linear-gradient(#b33e4e, #802b37);
     color: #FFFFFF;
     text-transform: uppercase;
     font-family: sans-serif;
     font-size: .8em;
     font-weight: bold;
+}
+
+li:nth-child(odd).header span {
+    text-transform: uppercase;
+    margin-left: 10px;
+    margin-top: 30px;
 }
 
 ul {
@@ -23,9 +22,9 @@ ul {
 
 li {
     overflow: auto;
-    /*padding-top: 15px;*/
-    /*padding-bottom: 15px;*/
-    /*border: 1px solid #ebebeb;*/
+    border-right: 1px solid rgba(0,0,0,.1);
+    border-left: 1px solid rgba(0,0,0,.1);
+    border-bottom: 1px solid rgba(0,0,0,.1);
 }
 
 li:nth-child(odd) {
@@ -39,8 +38,7 @@ li:nth-child(even) {
 .column {
     display: block;
     float: left;
-    border-bottom: 1px solid #ebebeb;
-    border-right: 1px solid #ebebeb;
+    border-right: 1px solid rgba(0,0,0,.1);
     height: 75px;
 }
 
@@ -63,7 +61,15 @@ span {
 }
 
 .header-title {
-    width: 886px;
+    width: 72%;
+}
+
+.header-author {
+    width: 10%;
+}
+
+.img {
+    width: 7%;
 }
 
 .author {
@@ -77,8 +83,9 @@ span {
 }
 
 .pubished {
-    width: 10%;
+    width: 12%;
     text-align: center;
+    border-right: none;
 }
 
 .author-span {
@@ -95,14 +102,7 @@ span {
     margin-top: 30px;
 }
 
-.header-title-span {
-    text-transform: uppercase;
-    margin-left: 10px;
-    margin-top: 30px;
-}
-
 .title-span {
-    margin-left: 15px;
     margin-top: 10px;
     overflow: auto;
 }
