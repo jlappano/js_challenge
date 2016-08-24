@@ -3,6 +3,16 @@ var button = document.getElementById("paginate-button");
 var wordSort = document.getElementById("words");
 var submittedSort = document.getElementById("submitted");
 
+var HISTORY = (function () {
+    var history = {};
+
+    history.insertStorage = function () {
+        localStorage.setItem("sort", "testStorage");
+    };
+    
+    return history;
+}());
+
 var SORT = (function () {
     var sort = {};
 
