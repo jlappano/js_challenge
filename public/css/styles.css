@@ -12,13 +12,16 @@ li:nth-child(odd).header {
 }
 
 ul {
+    margin-top: 0;
     list-style: none;
     padding: 0;
 }
 
 li {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    overflow: auto;
+    /*padding-top: 15px;*/
+    /*padding-bottom: 15px;*/
+    /*border: 1px solid #ebebeb;*/
 }
 
 li:nth-child(odd) {
@@ -30,13 +33,37 @@ li:nth-child(even) {
 }
 
 .column {
-    display: inline;
+    display: block;
+    float: left;
+    border-bottom: 1px solid #ebebeb;
+    border-right: 1px solid #ebebeb;
+    height: 75px;
 }
 
 img {
     padding-left: 15px;
     width: 50px;
     height: 50px;
+    display: block;
+    float: left;
+    border-bottom: 1px solid #ebebeb;
+    border-right: 1px solid #ebebeb;
+}
+
+.header-title {
+    width: 886px;
+}
+
+.author {
+    width: 10%;
+}
+
+.word-count {
+    width: 5%;
+}
+
+.pubished {
+    width: 10%;
 }
 
 .title {
@@ -45,4 +72,5 @@ img {
     font-family: Arial, Arial, Helvetica, sans-serif;
     font-weight: bold;
     padding-left: 20px;
+    width: 65%;
 }

@@ -1,4 +1,29 @@
 var paginateCount = 10;
+var button = document.getElementById("paginate-button");
+var wordSort = document.getElementById("words");
+var submittedSort = document.getElementById("submitted");
+
+var SORT = (function () {
+    var sort = {};
+
+    sort.byWordAsc = function () {
+        var $wrapper = $('#article-list');
+        $wrapper.find('li').sort(function(a, b) {
+            return +a.dataset.words - +b.dataset.words;
+        })
+        .appendTo($wrapper);
+    };
+
+    sort.bySubmittedAsc = function () {
+        var $wrapper = $('#article-list');
+        $wrapper.find('li').sort(function(a, b) {
+            return +a.dataset.submitted - +b.dataset.submitted;
+        })
+        .appendTo($wrapper);
+    };
+
+    return sort;
+}());
 
 var ARTICLE = (function () {
     var article = {};
@@ -10,7 +35,11 @@ var ARTICLE = (function () {
     }
 
     function createArticle(articleData) {
-        var articleString = '<li>' + '<img src=' + articleData.image + '></img>' + '<div class="title column">' + articleData.title + '</div>' + '<div class="column">' + articleData.profile.first_name + " " + articleData.profile.last_name + '<div class="column">' + articleData.words + '</div>' + '<div class="column">' + articleData.publish_at + '</div>' + '</li>'
+        var articleString = '<li data-words=' + articleData.words + ' data-submitted=' + 
+        articleData.publish_at + '><img src=' + articleData.image + '></img><div class="title column">' + 
+        articleData.title + '</div><div class="author column">' + articleData.profile.first_name + " " + articleData.profile.last_name + 
+        '</div><div class="word-count column">' + articleData.words + '</div><div class="pubished column">' + 
+        articleData.publish_at + '</div></li>'
         return articleString;
     }
 
@@ -54,7 +83,8 @@ $(function() {
     loadMore();
 
 
-    // add event listener to button
-    var el = document.getElementById("paginate-button");
-    el.addEventListener("click", loadMore);
+    // add event listeners to buttons
+    button.addEventListener("click", loadMore);
+    wordSort.addEventListener("click", SORT.byWordAsc);
+    submittedSort.addEventListener("click", SORT.bySubmittedAsc);
 });
