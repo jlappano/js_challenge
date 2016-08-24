@@ -1,25 +1,5 @@
 var paginateCount = 10;
 
-// var DATA = (function () {
-//     var data = {};
-
-//     data.fetchRemoteArticles = function () {
-//         var moreArticles = '';
-//         $.ajax({
-//           type: 'GET',
-//           url: window.location.href + "/data/more-articles.json",
-//           success:function(returnData){
-//             moreArticles = returnData;
-//           }
-//         });
-//         console.log()
-//         return moreArticles;
-//     };
-
-//     return data;
-// }());
-
-
 var ARTICLE = (function () {
     var article = {};
     var container = document.getElementById("article-list"); 
@@ -30,7 +10,7 @@ var ARTICLE = (function () {
     }
 
     function createArticle(articleData) {
-        var articleString = '<li>' + '<img src=' + articleData.image + '></img>' + '<div>' + articleData.title + '</div>' + articleData.profile.first_name + " " + articleData.profile.last_name + '<div>' + articleData.words + '</div>' + '<div>' + articleData.publish_at + '</div>' + '</li>'
+        var articleString = '<li>' + '<img src=' + articleData.image + '></img>' + '<div class="title column">' + articleData.title + '</div>' + '<div class="column">' + articleData.profile.first_name + " " + articleData.profile.last_name + '<div class="column">' + articleData.words + '</div>' + '<div class="column">' + articleData.publish_at + '</div>' + '</li>'
         return articleString;
     }
 
