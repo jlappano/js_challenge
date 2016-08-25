@@ -12,6 +12,24 @@ li:nth-child(odd).header {
     width: 6%;
 }
 
+button {
+    font-size: 1em;
+    font-family: sans-serif;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.8);
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, .1);
+    background-color: #F4F4F4;
+    padding: 8px 16px 8px 16px;
+    font-weight: 100;
+    letter-spacing: 0.01em;
+    outline:none;
+}
+
+.button-container {
+    text-align: center;
+}
+
 .header-submitted.column {
     border-right: none;
     width: 10%;
@@ -58,6 +76,7 @@ li:nth-child(even) {
 
 span {
     display: block;
+    cursor: default;
 }
 
 .background {
@@ -79,7 +98,7 @@ span {
 }
 
 .img {
-    width: 7%;
+    width: 6%;
 }
 
 .author {
@@ -112,9 +131,10 @@ span {
 }
 
 .black-text-span {
-    font-family: Arial, Arial, Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
     font-size: .8em;
     margin-top: 30px;
+    font-weight: 500;
 }
 
 .title-span {
@@ -122,10 +142,14 @@ span {
     overflow: auto;
 }
 
+.sort {
+    cursor: pointer;
+}
+
 .title {
     color: #125277;
-    font-size: 1.1em;
-    font-family: Arial, Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    font-family: Helvetica, sans-serif;
     font-weight: bold;
-    width: 65%;
+    width: 66%;
 }
