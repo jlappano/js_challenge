@@ -10,6 +10,8 @@ var $wrapper = $('#article-list');
 $(function() {
     var data = seedData;
     var allDataLoaded = false;
+
+    //load more appends seed data to page or fetches remote data 
     var loadMore = function(){
         if(data.length > 0){
             ARTICLE.appendArticles(data.splice(0, paginateCount));

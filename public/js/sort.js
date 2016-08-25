@@ -5,8 +5,11 @@ var SORT = (function () {
     sort.dateAsc = true;
     sort.sortSetting = '';
 
+    //pushes chosen sort setting into local storage object, can be fetched on page return
     function insertSortSettingIntoHistory() {
-        localStorage.setItem('sort', sort.sortSetting);
+        if(window.localStorage) {
+            localStorage.setItem('sort', sort.sortSetting);
+        }
     }
 
     sort.byWord = function () {
@@ -27,6 +30,7 @@ var SORT = (function () {
         insertSortSettingIntoHistory();
     };
 
+    //sorts articles by word count ascending
     sort.byWordAsc = function () {
         $wrapper.find('li').sort(function(a, b) {
             return +a.dataset.words - +b.dataset.words;
@@ -36,6 +40,7 @@ var SORT = (function () {
         sort.wordAsc = false;
     }
 
+    //sorts articles by word count descending
     sort.byWordDesc = function () {
         $wrapper.find('li').sort(function(a, b) {
             return +b.dataset.words - +a.dataset.words;
@@ -43,9 +48,9 @@ var SORT = (function () {
 
         sort.sortSetting = "byWordDesc";
         sort.wordAsc = true;
-        // insertSortSettingIntoHistory(); 
     }
 
+    //sorts articles by submitted date ascending
     sort.bySubmittedAsc = function () {
         $wrapper.find('li').sort(function(a, b) {
             return +a.dataset.submitted - +b.dataset.submitted;
@@ -56,6 +61,7 @@ var SORT = (function () {
         
     };
 
+    //sorts articles by submitted date descending
     sort.bySubmittedDesc = function () {
         $wrapper.find('li').sort(function(a, b) {
             return +b.dataset.submitted - +a.dataset.submitted;
@@ -63,10 +69,9 @@ var SORT = (function () {
 
         sort.sortSetting = "bySubmittedDesc";
         sort.dateAsc = true;
-        // insertSortSettingIntoHistory();
     };
 
-    //this could be better, key value 
+    //perform sort method based on localstorage value
     sort.getAndExecuteSortHistory = function () {
         if(window.localStorage) {
             sortStorage = localStorage.getItem('sort');

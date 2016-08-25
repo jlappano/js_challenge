@@ -36,6 +36,7 @@ var ARTICLE = (function () {
         return secondDiff + " seconds ago";
     }
 
+    //create HTML article
     function createArticle(articleData) {
         var dateString = Date.parse(new Date(articleData.publish_at));
         var articleString = '<li class="clearfix" data-words=' + articleData.words + ' data-submitted=' + 
@@ -46,10 +47,10 @@ var ARTICLE = (function () {
         return articleString;
     }
 
+    //apends all articles within given data
     article.appendArticles = function (data) {
         var length = data.length;
         for(var i=0; i<length; i++){
-            //create all my elements
             var articleData = data[i];
             var newArticle = createArticle(articleData);
             $wrapper.append(newArticle);
