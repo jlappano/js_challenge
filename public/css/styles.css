@@ -8,6 +8,16 @@ li:nth-child(odd).header {
     font-weight: bold;
 }
 
+.header-words {
+    width: 6%;
+}
+
+.header-submitted.column {
+    border-right: none;
+    width: 10%;
+
+}
+
 li:nth-child(odd).header span {
     text-transform: uppercase;
     margin-left: 10px;
@@ -78,12 +88,12 @@ span {
 }
 
 .word-count {
-    width: 5%;
+    width: 6%;
     text-align: center;
 }
 
 .pubished {
-    width: 12%;
+    width: 11%;
     text-align: center;
     border-right: none;
 }
@@ -94,6 +104,11 @@ span {
     color: #42738d;
     font-family: sans-serif;
     font-size: .7em;
+}
+
+.submitted-span {
+    text-align: center;
+    width: 100%;
 }
 
 .black-text-span {
@@ -112,6 +127,5 @@ span {
     font-size: 1.1em;
     font-family: Arial, Arial, Helvetica, sans-serif;
     font-weight: bold;
-    /*padding-left: 20px;*/
     width: 65%;
 }
