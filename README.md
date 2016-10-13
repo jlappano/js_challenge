@@ -1,4 +1,4 @@
-# THINX Frontend Development Test - Getting Started
+# Frontend Development Test - Getting Started
 - Dependencies required are Node.js and Express.js
 
 ## Setting Up
